@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+
+  <link rel="canonical" href="http://localhost:4000/best-practices-for-accessibility" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Use best practices for accessibility so that everyone can have a good experience with your app.">
+
+  <meta property="og:site_name" content="E.J.'s Digital Garden">
+
+  <link rel="icon" href="/favicon.ico">
+
+  <link rel="stylesheet" href="/styles.css">
+
+  
+  <meta property="og:description" content="Use best practices for accessibility so that everyone can have a good experience with your app."/>
+  
+
+  
+  <meta property="og:title" content="best practices for accessibility">
+  <meta property="og:type" content="article">
+  
+
+  
+  <meta property="article:published_time" content="2023-07-28T18:44:42-04:00">
+  <meta property="article:author" content="http://localhost:4000/">
+  
+
+  <meta property="og:url" content="http://localhost:4000/best-practices-for-accessibility" />
+
+  
+
+  <title>
+    
+      best practices for accessibility &mdash; E.J.'s Digital Garden
+    
+  </title>
+</head>
+
+  <body>
+    <nav><div>
+    <a class="internal-link" href="/"><b>E.J.'s Digital Garden</b></a>
+</div>
+</nav>
+    <div class="wrapper">
+      <main><article>
+  <div>
+    <h1>best practices for accessibility</h1>
+    <time datetime="2023-07-22T14:53:33-04:00">
+      Last updated on July 22, 2023
+      
+    </time>
+  </div>
+
+  <div id="notes-entry-container">
+    <content>
+      <html><body>
+<p>Use best practices for accessibility so that everyone can have a good experience with your app.</p>
+
+<p>The best practices you should follow depend on the language you are using. Below is a non-exhaustive list of some languages you may use and tips on how to ensure your projects are accessible.</p>
+
+<h2 id="for-all">For all</h2>
+<ul>
+  <li>Remember to use high-contrast colors. Note that WCAG requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text to achieve Level AA compliance.</li>
+  <li>See this <a href="https://www.w3.org/WAI/tools-list/evaluation/" target="_blank">list of web accessibility evaluation tools</a> to test the accessibility of your site.</li>
+</ul>
+
+<h2 id="html">HTML</h2>
+<ul>
+  <li>Use semantic elements to structure your webpage. For example, use <code class="language-plaintext highlighter-rouge">&lt;header&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;nav&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;main&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;section&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;article&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;footer&gt;</code>, etc. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element" target="_blank">Here is a link to MDN docs</a> which lists the possible elements you can use.</li>
+  <li>Provide <a href="https://accessibility.huit.harvard.edu/describe-content-images" target="_blank">descriptive and meaningful text</a> in the <code class="language-plaintext highlighter-rouge">alt</code> attribute</li>
+  <li>Always associate form fields with labels using the <code class="language-plaintext highlighter-rouge">for</code> attribute on the label element or by wrapping the input element within the label element.</li>
+  <li>Use <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques" target="_blank">ARIA (Accessible Rich Internet Applications) roles</a> and attributes when necessary to provide additional context for interactive elements and dynamic content. This is especially important for elements like buttons, menus, and complex widgets.</li>
+  <li>Logical Tab Order: Ensure that the focus order when using the keyboard follows a logical flow and makes sense for all interactive elements. You can <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex" target="_blank">edit the tab order</a> using the <code class="language-plaintext highlighter-rouge">tabindex</code> attribute.</li>
+</ul>
+</body></html>
+      <em><p>Thanks for reading and I hope you have a great day!</p></em>
+    </content>
+
+    <side style="font-size: 0.9em">
+      <h3 style="margin-bottom: 1em">Notes mentioning this note</h3>
+      
+      <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
+      
+        <div class="backlink-box">
+        <a class="internal-link" href="/html-and-css">HTML and CSS</a><br>
+        <div style="font-size: 0.9em">To ensure your site looks good on mobile as well as desktop, use [[responsive design]]. Also see [[best practices for...</div>
+        </div>
+      
+      </div>
+      
+    </side>
+  </div>
+</article>
+
+<hr>
+
+<p>Here are all the notes in this garden, along with their links, visualized as a graph.</p>
+
+<style>
+  .links line {
+    stroke: #ccc;
+    opacity: 0.5;
+  }
+
+  .nodes circle {
+    cursor: pointer;
+    fill: #8b88e6;
+    transition: all 0.15s ease-out;
+  }
+
+  .text text {
+    cursor: pointer;
+    fill: #333;
+    text-shadow: -1px -1px 0 #fafafabb, 1px -1px 0 #fafafabb, -1px 1px 0 #fafafabb, 1px 1px 0 #fafafabb;
+  }
+
+  .nodes [active],
+  .text [active] {
+    cursor: pointer;
+    fill: black;
+  }
+
+  .inactive {
+    opacity: 0.1;
+    transition: all 0.15s ease-out;
+  }
+
+  #graph-wrapper {
+    background: #fcfcfc;
+    border-radius: 4px;
+    height: auto;
+  }
+  
+  #graph-wrapper > svg {
+    max-width: 100%;
+    display: block;
+  }
+</style>
+
+<div id="graph-wrapper">
+  <script>
+    window.addEventListener("load", loadGraph);
+
+    function loadGraph() {
+      var oScript = document.createElement("script");
+      oScript.src = "https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js";
+      oScript.crossOrigin = 'anonymous';
+      oScript.integrity =
+        "sha512-FHsFVKQ/T1KWJDGSbrUhTJyS1ph3eRrxI228ND0EGaEp6v4a/vGwPWd3Dtd/+9cI7ccofZvl/wulICEurHN1pg==";
+      document.body.appendChild(oScript);
+      oScript.onload = () => {
+        const MINIMAL_NODE_SIZE = 8;
+        const MAX_NODE_SIZE = 12;
+        const ACTIVE_RADIUS_FACTOR = 1.5;
+        const STROKE = 1;
+        const FONT_SIZE = 16;
+        const TICKS = 200;
+        const FONT_BASELINE = 40;
+        const MAX_LABEL_LENGTH = 50;
+
+        const graphData = {"edges":[{"source":"100101112108111121109101110116","target":"78101116108105102121"},{"source":"821019799116","target":"821019799116"},{"source":"115104111112112105110103321021111143210511011511210511497116105111110","target":"821019799116"},{"source":"1011201121141011151151051181013299111100101","target":"838280"},{"source":"1011201121141011151151051181013299111100101","target":"97114103117109101110116321119810610199116115"},{"source":"72847776329711010032678383","target":"9810111511632112114979911610599101115321021111143297999910111511510598105108105116121"},{"source":"7497109109109105110103","target":"98114101971071121111051101161153297110100321091011001059732113117101114105101115"},{"source":"11410111511211111011510511810132100101115105103110","target":"98114101971071121111051101161153297110100321091011001059732113117101114105101115"},{"source":"1011201121141011151151051181013299111100101","target":"99108101971103210211711099116105111110115"},{"source":"1011201121141011151151051181013299111100101","target":"9910810197110321189711410597981081013211097109101115"},{"source":"72847776329711010032678383","target":"1029711810599111110"},{"source":"10511011611411132116111321161041013210397114100101110","target":"10297118111114105116101321001011181011081111121091011101163211410111511111711499101115"},{"source":"7497109109109105110103","target":"7497109109109105110103"},{"source":"11410111511211111011510511810132100101115105103110","target":"1141011089711610511810132117110105116115"},{"source":"72847776329711010032678383","target":"11410111511211111011510511810132100101115105103110"},{"source":"98114101971071121111051101161153297110100321091011001059732113117101114105101115","target":"11410111511211111011510511810132100101115105103110"},{"source":"7497109109109105110103","target":"11911111410710511010332119105116104328311211111610510212139115321191019832658073"}],"nodes":[{"id":"100101112108111121109101110116","path":"/deployment","label":"deployment"},{"id":"69120112114101115115","path":"/express","label":"Express"},{"id":"72847776329711010032678383","path":"/html-and-css","label":"HTML and CSS"},{"id":"78101116108105102121","path":"/netlify","label":"Netlify"},{"id":"7811110010146106115","path":"/node-js","label":"Node.js"},{"id":"80121116104111110","path":"/python","label":"Python"},{"id":"821019799116","path":"/react","label":"React"},{"id":"8381763210097116979897115101115","path":"/sql-databases","label":"SQL databases"},{"id":"838280","path":"/srp","label":"SRP"},{"id":"97114103117109101110116321119810610199116115","path":"/argument-objects","label":"argument objects"},{"id":"9810111511632112114979911610599101115321021111143297999910111511510598105108105116121","path":"/best-practices-for-accessibility","label":"best practices for accessibility"},{"id":"98114101971071121111051101161153297110100321091011001059732113117101114105101115","path":"/breakpoints-and-media-queries","label":"breakpoints and media queries"},{"id":"99108101971103210211711099116105111110115","path":"/clean-functions","label":"clean functions"},{"id":"9910810197110321189711410597981081013211097109101115","path":"/clean-variable-names","label":"clean variable names"},{"id":"1011201121141011151151051181013299111100101","path":"/expressive-code","label":"expressive code"},{"id":"1029711810599111110","path":"/favicon","label":"favicon"},{"id":"10297118111114105116101321001011181011081111121091011101163211410111511111711499101115","path":"/favorite-development-resources","label":"favorite development resources"},{"id":"10511011611411132116111321161041013210397114100101110","path":"/intro-to-the-garden","label":"intro to the garden"},{"id":"10997114107100111119110","path":"/markdown","label":"markdown"},{"id":"1111121011103211511111711499101","path":"/open-source","label":"open source"},{"id":"7497109109109105110103","path":"/jammming","label":"Jammming"},{"id":"1141011089711610511810132117110105116115","path":"/relative-units","label":"relative units"},{"id":"11410111511211111011510511810132100101115105103110","path":"/responsive-design","label":"responsive design"},{"id":"115104111112112105110103321021111143210511011511210511497116105111110","path":"/shopping-for-inspiration","label":"shopping for inspiration"},{"id":"11911111410710511010332119105116104328311211111610510212139115321191019832658073","path":"/working-with-spotify-s-web-api","label":"working with Spotify's web API"}]}
+        let nodesData = graphData.nodes;
+        let linksData = graphData.edges;
+
+        const nodeSize = {};
+
+        const updateNodeSize = () => {
+          nodesData.forEach((el) => {
+            let weight =
+              3 *
+              Math.sqrt(
+                linksData.filter((l) => l.source.id === el.id || l.target.id === el.id)
+                  .length + 1
+              );
+            if (weight < MINIMAL_NODE_SIZE) {
+              weight = MINIMAL_NODE_SIZE;
+            } else if (weight > MAX_NODE_SIZE) {
+              weight = MAX_NODE_SIZE;
+            }
+            nodeSize[el.id] = weight;
+          });
+        };
+
+        const onClick = (d) => {
+          window.location = d.path
+        };
+
+        const onMouseover = function (d) {
+          const relatedNodesSet = new Set();
+          linksData
+            .filter((n) => n.target.id == d.id || n.source.id == d.id)
+            .forEach((n) => {
+              relatedNodesSet.add(n.target.id);
+              relatedNodesSet.add(n.source.id);
+            });
+
+          node.attr("class", (node_d) => {
+            if (node_d.id !== d.id && !relatedNodesSet.has(node_d.id)) {
+              return "inactive";
+            }
+            return "";
+          });
+
+          link.attr("class", (link_d) => {
+            if (link_d.source.id !== d.id && link_d.target.id !== d.id) {
+              return "inactive";
+            }
+            return "";
+          });
+
+          link.attr("stroke-width", (link_d) => {
+            if (link_d.source.id === d.id || link_d.target.id === d.id) {
+              return STROKE * 4;
+            }
+            return STROKE;
+          });
+          text.attr("class", (text_d) => {
+            if (text_d.id !== d.id && !relatedNodesSet.has(text_d.id)) {
+              return "inactive";
+            }
+            return "";
+          });
+        };
+
+        const onMouseout = function (d) {
+          node.attr("class", "");
+          link.attr("class", "");
+          text.attr("class", "");
+          link.attr("stroke-width", STROKE);
+        };
+
+        const sameNodes = (previous, next) => {
+          if (next.length !== previous.length) {
+            return false;
+          }
+
+          const map = new Map();
+          for (const node of previous) {
+            map.set(node.id, node.label);
+          }
+
+          for (const node of next) {
+            const found = map.get(node.id);
+            if (!found || found !== node.title) {
+              return false;
+            }
+          }
+
+          return true;
+        };
+
+        const sameEdges = (previous, next) => {
+          if (next.length !== previous.length) {
+            return false;
+          }
+
+          const set = new Set();
+          for (const edge of previous) {
+            set.add(`${edge.source.id}-${edge.target.id}`);
+          }
+
+          for (const edge of next) {
+            if (!set.has(`${edge.source.id}-${edge.target.id}`)) {
+              return false;
+            }
+          }
+
+          return true;
+        };
+
+        const graphWrapper = document.getElementById('graph-wrapper')
+        const element = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        element.setAttribute("width", graphWrapper.getBoundingClientRect().width);
+        element.setAttribute("height", window.innerHeight * 0.8);
+        graphWrapper.appendChild(element);
+
+        const reportWindowSize = () => {
+          element.setAttribute("width", window.innerWidth);
+          element.setAttribute("height", window.innerHeight);
+        };
+
+        window.onresize = reportWindowSize;
+
+        const svg = d3.select("svg");
+        const width = Number(svg.attr("width"));
+        const height = Number(svg.attr("height"));
+        let zoomLevel = 1;
+
+        const simulation = d3
+          .forceSimulation(nodesData)
+          .force("forceX", d3.forceX().x(width / 2))
+          .force("forceY", d3.forceY().y(height / 2))
+          .force("charge", d3.forceManyBody())
+          .force(
+            "link",
+            d3
+              .forceLink(linksData)
+              .id((d) => d.id)
+              .distance(70)
+          )
+          .force("center", d3.forceCenter(width / 2, height / 2))
+          .force("collision", d3.forceCollide().radius(80))
+          .stop();
+
+        const g = svg.append("g");
+        let link = g.append("g").attr("class", "links").selectAll(".link");
+        let node = g.append("g").attr("class", "nodes").selectAll(".node");
+        let text = g.append("g").attr("class", "text").selectAll(".text");
+
+        const resize = () => {
+          if (d3.event) {
+            const scale = d3.event.transform;
+            zoomLevel = scale.k;
+            g.attr("transform", scale);
+          }
+
+          const zoomOrKeep = (value) => (zoomLevel >= 1 ? value / zoomLevel : value);
+
+          const font = Math.max(Math.round(zoomOrKeep(FONT_SIZE)), 1);
+
+          text.attr("font-size", (d) => font);
+          text.attr("y", (d) => d.y - zoomOrKeep(FONT_BASELINE) + 8);
+          link.attr("stroke-width", zoomOrKeep(STROKE));
+          node.attr("r", (d) => {
+            return zoomOrKeep(nodeSize[d.id]);
+          });
+          svg
+            .selectAll("circle")
+            .filter((_d, i, nodes) => d3.select(nodes[i]).attr("active"))
+            .attr("r", (d) => zoomOrKeep(ACTIVE_RADIUS_FACTOR * nodeSize[d.id]));
+        };
+
+        const ticked = () => {
+          node.attr("cx", (d) => d.x).attr("cy", (d) => d.y);
+          text
+            .attr("x", (d) => d.x)
+            .attr("y", (d) => d.y - (FONT_BASELINE - nodeSize[d.id]) / zoomLevel);
+          link
+            .attr("x1", (d) => d.source.x)
+            .attr("y1", (d) => d.source.y)
+            .attr("x2", (d) => d.target.x)
+            .attr("y2", (d) => d.target.y);
+        };
+
+        const restart = () => {
+          updateNodeSize();
+          node = node.data(nodesData, (d) => d.id);
+          node.exit().remove();
+          node = node
+            .enter()
+            .append("circle")
+            .attr("r", (d) => {
+              return nodeSize[d.id];
+            })
+            .on("click", onClick)
+            .on("mouseover", onMouseover)
+            .on("mouseout", onMouseout)
+            .merge(node);
+
+          link = link.data(linksData, (d) => `${d.source.id}-${d.target.id}`);
+          link.exit().remove();
+          link = link.enter().append("line").attr("stroke-width", STROKE).merge(link);
+
+          text = text.data(nodesData, (d) => d.label);
+          text.exit().remove();
+          text = text
+            .enter()
+            .append("text")
+            .text((d) => shorten(d.label.replace(/_*/g, ""), MAX_LABEL_LENGTH))
+            .attr("font-size", `${FONT_SIZE}px`)
+            .attr("text-anchor", "middle")
+            .attr("alignment-baseline", "central")
+            .on("click", onClick)
+            .on("mouseover", onMouseover)
+            .on("mouseout", onMouseout)
+            .merge(text);
+
+          node.attr("active", (d) => isCurrentPath(d.path) ? true : null);
+          text.attr("active", (d) => isCurrentPath(d.path) ? true : null);
+
+          simulation.nodes(nodesData);
+          simulation.force("link").links(linksData);
+          simulation.alpha(1).restart();
+          simulation.stop();
+
+          for (let i = 0; i < TICKS; i++) {
+            simulation.tick();
+          }
+
+          ticked();
+        };
+
+        const zoomHandler = d3.zoom().scaleExtent([0.2, 3]).on("zoom", resize);
+
+        zoomHandler(svg);
+        restart();
+
+        function isCurrentPath(notePath) {
+          return window.location.pathname.includes(notePath)
+        }
+
+        function shorten(str, maxLen, separator = ' ') {
+          if (str.length <= maxLen) return str;
+          return str.substr(0, str.lastIndexOf(separator, maxLen)) + '...';
+        }
+      }
+    }
+  </script>
+</div>
+
+</main>
+      <footer>Template by Jekyll. Content written with ❤️ by Emma Jayne. <a class="internal-link" href="/about">About me</a>
+</footer>
+    </div>
+
+    <!-- That file is not particularly elegant. This will need a refactor at some point. -->
+<style>
+  content a.internal-link {
+    border-color: #8b88e6;
+    background-color: #efefff;
+  }
+
+  #tooltip-wrapper {
+    background: white;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    position: absolute;
+    width: 400px;
+    height: 250px;
+    font-size: 0.8em;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    opacity: 0;
+    transition: opacity 100ms;
+  }
+
+  #tooltip-wrapper:after {
+		content: "";
+		position: absolute;
+		z-index: 1;
+		bottom: 0;
+		left: 0;
+		pointer-events: none;
+		background-image: linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%);
+		width: 100%;
+		height: 75px;
+  }
+</style>
+
+<div style="opacity: 0; display: none;" id='tooltip-wrapper'>
+  <div id='tooltip-content'>
+  </div>
+</div>
+
+<iframe style="display: none; height: 0; width: 0;" id='link-preview-iframe' src="">
+</iframe>
+
+<script>
+  var opacityTimeout;
+  var contentTimeout;
+  var transitionDurationMs = 100;
+
+  var iframe = document.getElementById('link-preview-iframe')
+  var tooltipWrapper = document.getElementById('tooltip-wrapper')
+  var tooltipContent = document.getElementById('tooltip-content')
+
+  var linkHistories = {};
+
+  function hideTooltip() {
+    opacityTimeout = setTimeout(function() {
+      tooltipWrapper.style.opacity = 0;
+      contentTimeout = setTimeout(function() {
+        tooltipContent.innerHTML = '';
+        tooltipWrapper.style.display = 'none';
+      }, transitionDurationMs + 1);
+    }, transitionDurationMs)
+  }
+
+  function showTooltip(event) {
+    var elem = event.target;
+    var elem_props = elem.getClientRects()[elem.getClientRects().length - 1];
+    var top = window.pageYOffset || document.documentElement.scrollTop
+
+    if (event.target.host === window.location.host) {
+      if (!linkHistories[event.target.href]) {
+        iframe.src = event.target.href
+        iframe.onload = function() {
+          tooltipContentHtml = ''
+          tooltipContentHtml += '<div style="font-weight: bold;">' + iframe.contentWindow.document.querySelector('h1').innerHTML + '</div>'
+          tooltipContentHtml += iframe.contentWindow.document.querySelector('content').innerHTML
+
+          tooltipContent.innerHTML = tooltipContentHtml
+          linkHistories[event.target.href] = tooltipContentHtml
+
+          tooltipWrapper.style.display = 'block';
+          setTimeout(function() {
+            tooltipWrapper.style.opacity = 1;
+          }, 1)
+        } 
+      } else {
+        tooltipContent.innerHTML = linkHistories[event.target.href]
+        tooltipWrapper.style.display = 'block';
+        setTimeout(function() {
+          tooltipWrapper.style.opacity = 1;
+        }, 1)
+      }
+
+
+      tooltipWrapper.style.left = elem_props.left - (tooltipWrapper.offsetWidth / 2) + (elem_props.width / 2) + "px";
+      if ((window.innerHeight - elem_props.top) < (tooltipWrapper.offsetHeight)) {
+          tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
+      } else if ((window.innerHeight - elem_props.top) > (tooltipWrapper.offsetHeight)) {
+          tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
+      }
+
+      if ((elem_props.left + (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
+          tooltipWrapper.style.left = "10px";
+      } else if ((document.body.clientWidth - elem_props.left - (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
+          tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
+      }
+    }
+  }
+
+  function setupListeners(linkElement) {
+    linkElement.addEventListener('mouseleave', function(_event) {
+      hideTooltip();
+    });
+
+    tooltipWrapper.addEventListener('mouseleave', function(_event) {
+      hideTooltip();
+    });
+
+    linkElement.addEventListener('touchend', function(_event) {
+      hideTooltip();
+    });
+
+    tooltipWrapper.addEventListener('touchend', function(_event) {
+      hideTooltip();
+    });
+
+    linkElement.addEventListener('mouseenter', function(event) {
+      clearTimeout(opacityTimeout);
+      clearTimeout(contentTimeout);
+      showTooltip(event);
+    });
+
+    tooltipWrapper.addEventListener('mouseenter', function(event) {
+      clearTimeout(opacityTimeout);
+      clearTimeout(contentTimeout);
+    });
+  }
+
+  document.querySelectorAll('content a').forEach(setupListeners);
+</script>
+
+  </body>
+</html>
