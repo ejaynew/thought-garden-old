@@ -7,3 +7,4 @@ Getting started with my own digital garden.
 ## License
 
 Source code is available under the [MIT license](LICENSE.md).
+"# ejaynew.github.io" 
