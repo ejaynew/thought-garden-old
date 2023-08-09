@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/express" />
+  <link rel="canonical" href="http://localhost:4000/react-router" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="">
+  <meta name="description" content="Intro“React router is a library that provides navigational components for React Developers to create single-page applications (SPAs) with dynamic, client-sid...">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content=""/>
+  <meta property="og:description" content="Intro“React router is a library that provides navigational components for React Developers to create single-page applications (SPAs) with dynamic, client-sid..."/>
   
 
   
-  <meta property="og:title" content="Express">
+  <meta property="og:title" content="React Router">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/express" />
+  <meta property="og:url" content="http://localhost:4000/react-router" />
 
   
 
   <title>
     
-      Express &mdash; E.J.'s Digital Garden
+      React Router &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,27 +48,139 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>Express</h1>
-    <time datetime="2023-08-06T17:44:39-04:00">
-      Last updated on August 6, 2023
+    <h1>React Router</h1>
+    <time datetime="2023-08-09T17:25:18-04:00">
+      Last updated on August 9, 2023
       
     </time>
   </div>
 
   <div id="notes-entry-container">
     <content>
-      
+      <html><body>
+<h2 id="intro">Intro</h2>
+<p>“React router is a library that provides navigational components for React Developers to create single-page applications (SPAs) with dynamic, client-side routing.”   <em>— Codecademy</em></p>
+<h2 id="components">Components</h2>
+<h3 id="link-navlink">
+<code class="language-plaintext highlighter-rouge">Link</code>, <code class="language-plaintext highlighter-rouge">NavLink</code>
+</h3>
+<p>A <code class="language-plaintext highlighter-rouge">Link</code> is similar to an <code class="language-plaintext highlighter-rouge">&lt;a&gt;</code> but prevents default behavior of page refresh. <code class="language-plaintext highlighter-rouge">NavLink</code> is similar to a <code class="language-plaintext highlighter-rouge">Link</code>, but automatically applies an <code class="language-plaintext highlighter-rouge">active</code> class to the link clicked.</p>
+
+<h3 id="navigate"><code class="language-plaintext highlighter-rouge">Navigate</code></h3>
+<p>If you <code class="language-plaintext highlighter-rouge">return &lt;Navigate to="/absolute-path" /&gt;</code>, the path is returned and rendered.</p>
+
+<h3 id="route"><code class="language-plaintext highlighter-rouge">Route</code></h3>
+<p>Define <code class="language-plaintext highlighter-rouge">Route</code>s in your <code class="language-plaintext highlighter-rouge">App.js</code> file. Use the following snippet as a guide:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span> <span class="k">import</span> <span class="p">{</span><span class="nx">RouterProvider</span><span class="p">,</span> <span class="nx">createBrowserRouter</span><span class="p">,</span> <span class="nx">createRoutesFromElements</span><span class="p">,</span> <span class="nx">Route</span><span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-router-dom</span><span class="dl">"</span><span class="p">;</span> 
+<span class="c1">// import all components you will need to route to </span>
+<span class="k">import</span> <span class="dl">"</span><span class="s2">./App.css</span><span class="dl">"</span><span class="p">;</span> 
+
+<span class="kd">const</span> <span class="nx">router</span> <span class="o">=</span> <span class="nf">createBrowserRouter</span><span class="p">(</span> 
+	<span class="nf">createRoutesFromElements</span><span class="p">(</span> 
+		<span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">"/"</span> <span class="na">element</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">Root</span> <span class="p">/&gt;</span><span class="si">}</span><span class="p">&gt;</span> 
+			<span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">"/absolute-path-1"</span> <span class="na">element</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">ComponentOne</span> <span class="p">/&gt;</span><span class="si">}</span> <span class="p">/&gt;</span><span class="si">{</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="si">}</span> 
+			<span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">"/absolute-path-2"</span> <span class="na">element</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">ComponentTwo</span> <span class="p">/&gt;</span><span class="si">}</span><span class="p">&gt;</span> <span class="si">{</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="si">}</span> 
+				<span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">":relative-variable-path"</span> <span class="na">element</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">ChildComponent</span> <span class="p">/&gt;</span><span class="si">}</span> <span class="p">/&gt;</span><span class="si">{</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="si">}</span> 
+			<span class="p">&lt;/</span><span class="nc">Route</span><span class="p">&gt;</span><span class="si">{</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="si">}</span> 
+		<span class="p">&lt;/</span><span class="nc">Route</span><span class="p">&gt;</span> 
+	<span class="p">)</span> 
+<span class="p">);</span> 
+			
+<span class="kd">function</span> <span class="nf">App</span><span class="p">()</span> <span class="p">{</span> 
+	<span class="k">return </span><span class="p">(</span> 
+		<span class="p">&lt;&gt;</span> 
+			<span class="p">&lt;</span><span class="nc">RouterProvider</span> <span class="na">router</span><span class="p">=</span><span class="si">{</span><span class="nx">router</span><span class="si">}</span> <span class="p">/&gt;</span><span class="si">{</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="si">}</span> 
+		<span class="p">&lt;/&gt;</span> 
+	<span class="p">);</span> 
+<span class="p">}</span> 
+			
+<span class="k">export</span> <span class="k">default</span> <span class="nx">App</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Note that you can have variables in your path name by using a <code class="language-plaintext highlighter-rouge">:</code> before the name of your variable in the path. For example:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">"/articles/:title"</span> <span class="na">element</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">Article</span> <span class="p">/&gt;</span><span class="si">}</span> <span class="p">/&gt;</span>
+</code></pre></div></div>
+<p>or</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Nested routes -- use with &lt;Outlet&gt;</span>
+<span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">"/categories"</span> <span class="na">element</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">Categories</span> <span class="p">/&gt;</span><span class="si">}</span><span class="p">&gt;</span>
+	<span class="p">&lt;</span><span class="nc">Route</span> <span class="na">path</span><span class="p">=</span><span class="s">":name"</span> <span class="na">element</span><span class="p">=</span><span class="si">{</span><span class="p">&lt;</span><span class="nc">Category</span> <span class="p">/&gt;</span><span class="si">}</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nc">Route</span><span class="p">&gt;</span>
+</code></pre></div></div>
+
+<p>Then you can retrieve these values in the child element (in this case, inside <code class="language-plaintext highlighter-rouge">Category.js</code>) with the <code class="language-plaintext highlighter-rouge">useParams</code> method. <a href="https://reactrouter.com/en/main/hooks/use-params" target="_blank">Click here</a> to learn more about <code class="language-plaintext highlighter-rouge">useParams</code> from the official docs.</p>
+<h2 id="hooks">Hooks</h2>
+<h3 id="usenavigate"><code class="language-plaintext highlighter-rouge">useNavigate</code></h3>
+<p>One important tip to remember: don’t call <code class="language-plaintext highlighter-rouge">useNavigate</code> within a callback. Use the following snippet as a guide for how to use this hook:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">useNavigate</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-router-dom</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nf">Header</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">const</span> <span class="nx">navigate</span> <span class="o">=</span> <span class="nf">useNavigate</span><span class="p">();</span>
+
+	<span class="kd">const</span> <span class="nx">handleSubmit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="nx">e</span><span class="p">.</span><span class="nf">preventDefault</span><span class="p">();</span>
+		<span class="c1">// handle any submit tasks</span>
+		<span class="nf">navigate</span><span class="p">(</span><span class="dl">"</span><span class="s2">/absolute-path</span><span class="dl">"</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="k">return </span><span class="p">(</span>
+		<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+			<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Header<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+			<span class="p">&lt;</span><span class="nt">form</span> <span class="na">onSubmit</span><span class="p">=</span><span class="si">{</span><span class="nx">handleSubmit</span><span class="si">}</span><span class="p">&gt;</span>
+				<span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="p">=</span><span class="s">"submit"</span><span class="p">&gt;</span>
+					Submit
+				<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+			<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+		<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+	<span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="usesearchparams-and-createsearchparams">
+<code class="language-plaintext highlighter-rouge">useSearchParams</code> and <code class="language-plaintext highlighter-rouge">createSearchParams</code>
+</h3>
+<p>To use these hooks, you should</p>
+<ol>
+  <li>Define an object representing the query parameters called <code class="language-plaintext highlighter-rouge">searchQueryParams</code>
+</li>
+  <li>Create a <code class="language-plaintext highlighter-rouge">const</code> called <code class="language-plaintext highlighter-rouge">searchQueryString</code>, which should assigned as <code class="language-plaintext highlighter-rouge">createSearchParams(searchQueryParams)</code>
+</li>
+  <li>Call <code class="language-plaintext highlighter-rouge">useNavigate</code> and pass an object containing <code class="language-plaintext highlighter-rouge">pathname</code> and <code class="language-plaintext highlighter-rouge">search</code> keys, where <code class="language-plaintext highlighter-rouge">pathname</code> is a string indicating where to navigate to and <code class="language-plaintext highlighter-rouge">search</code> is a string indicating the query string to append to the path
+See the following code snippet, which follows the steps outlined above</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span><span class="err"> </span><span class="nx">useNavigate</span><span class="p">,</span> <span class="nx">createSearchParams</span> <span class="p">}</span><span class="err"> </span><span class="k">from</span> <span class="dl">'</span><span class="s1">react-router-dom</span><span class="dl">'</span><span class="p">;</span>  
+
+<span class="kd">const</span> <span class="nx">navigate</span> <span class="o">=</span><span class="err"> </span><span class="nf">useNavigate</span><span class="p">();</span>  
+<span class="kd">const</span> <span class="nx">searchQueryParams</span> <span class="o">=</span><span class="err"> </span><span class="p">{</span>  
+<span class="err">  </span><span class="nx">order</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ASC</span><span class="dl">'</span>  
+<span class="p">}</span>  
+
+<span class="kd">const</span> <span class="nx">searchQueryString</span> <span class="o">=</span><span class="err"> </span><span class="nf">createSearchParams</span><span class="p">(</span><span class="nx">searchQueryParams</span><span class="p">);</span>  
+
+<span class="nf">navigate</span><span class="p">({</span>  
+<span class="err">  </span><span class="na">pathname</span><span class="p">:</span><span class="dl">'</span><span class="s1">/list</span><span class="dl">'</span><span class="p">,</span>  
+<span class="err">  </span><span class="na">search</span><span class="p">:</span> <span class="s2">`?</span><span class="p">${</span><span class="nx">searchQueryString</span><span class="p">}</span><span class="s2">`</span>  
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Also see <a href="https://reactrouter.com/en/main/start/overview" target="_blank">the docs</a>.</p>
+
+<p><em>These notes apply to React Router v6</em></p>
+</body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
 
     <side style="font-size: 0.9em">
       <h3 style="margin-bottom: 1em">Notes mentioning this note</h3>
       
-
-      <div style="font-size: 0.9em">
-        <p>
-          There are no notes linking to this note.
-        </p>
+      <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
+      
+        <div class="backlink-box">
+        <a class="internal-link" href="/react">React</a><br>
+        <div style="font-size: 0.9em">Check the docs.
+</div>
+        </div>
+      
       </div>
       
     </side>
