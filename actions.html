@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/relative-units" />
+  <link rel="canonical" href="http://localhost:4000/actions" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="See css-units-best-practices on Github.">
+  <meta name="description" content="In [[Redux]], actions are represented as objects. Every action must have a type property with a string value describing the action. Actions can optionally ha...">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="See css-units-best-practices on Github."/>
+  <meta property="og:description" content="In [[Redux]], actions are represented as objects. Every action must have a type property with a string value describing the action. Actions can optionally ha..."/>
   
 
   
-  <meta property="og:title" content="relative units">
+  <meta property="og:title" content="actions (Redux)">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/relative-units" />
+  <meta property="og:url" content="http://localhost:4000/actions" />
 
   
 
   <title>
     
-      relative units &mdash; E.J.'s Digital Garden
+      actions (Redux) &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>relative units</h1>
-    <time datetime="2023-08-06T17:45:25-04:00">
-      Last updated on August 6, 2023
+    <h1>actions (Redux)</h1>
+    <time datetime="2023-08-16T10:49:46-04:00">
+      Last updated on August 16, 2023
       
     </time>
   </div>
@@ -58,8 +58,16 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>See <a href="https://gist.github.com/basham/2175a16ab7c60ce8e001" target="_blank">css-units-best-practices on Github</a>.</p>
+<p>In <a class="internal-link" href="/redux">Redux</a>, actions are represented as objects. Every action must have a <code class="language-plaintext highlighter-rouge">type</code> property with a string value describing the action. Actions can optionally have a <code class="language-plaintext highlighter-rouge">payload</code> property with a string value containing information about the action to be dispatched.</p>
 
+<p>Here is an example of an action (from codecademy.com):</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">action</span> <span class="o">=</span><span class="err"> </span><span class="p">{</span>  
+<span class="err">  </span><span class="nx">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">todos/addTodo</span><span class="dl">'</span><span class="p">,</span>  
+<span class="err">  </span><span class="nx">payload</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Take selfies</span><span class="dl">'</span>  
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>The specific instructions for how to carry out the action should be defined in a <a class="internal-link" href="/reducer-function">reducer function</a>.</p>
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
@@ -70,8 +78,8 @@
       <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
       
         <div class="backlink-box">
-        <a class="internal-link" href="/responsive-design">responsive design</a><br>
-        <div style="font-size: 0.9em">To make a site responsive, the layout will be based on a grid. Using methods such as [[relative units]] and...</div>
+        <a class="internal-link" href="/redux">Redux</a><br>
+        <div style="font-size: 0.9em">Redux is a library for React that helps with managing state in a container called a store. The library imposes...</div>
         </div>
       
       </div>

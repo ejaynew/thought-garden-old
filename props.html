@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/relative-units" />
+  <link rel="canonical" href="http://localhost:4000/props" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="See css-units-best-practices on Github.">
+  <meta name="description" content="A prop (short for property) is a key-value pair that you pass to a React element.">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="See css-units-best-practices on Github."/>
+  <meta property="og:description" content="A prop (short for property) is a key-value pair that you pass to a React element."/>
   
 
   
-  <meta property="og:title" content="relative units">
+  <meta property="og:title" content="props">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/relative-units" />
+  <meta property="og:url" content="http://localhost:4000/props" />
 
   
 
   <title>
     
-      relative units &mdash; E.J.'s Digital Garden
+      props &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>relative units</h1>
-    <time datetime="2023-08-06T17:45:25-04:00">
-      Last updated on August 6, 2023
+    <h1>props</h1>
+    <time datetime="2023-08-15T11:04:19-04:00">
+      Last updated on August 15, 2023
       
     </time>
   </div>
@@ -58,8 +58,13 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>See <a href="https://gist.github.com/basham/2175a16ab7c60ce8e001" target="_blank">css-units-best-practices on Github</a>.</p>
+<p>A <strong>prop</strong> (short for <strong>property</strong>) is a key-value pair that you pass to a React element.</p>
 
+<p>For example, the following example passes a <code class="language-plaintext highlighter-rouge">material</code> prop to the <code class="language-plaintext highlighter-rouge">Bottle</code> element:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">myElement</span> <span class="o">=</span> <span class="p">&lt;</span><span class="nc">Bottle</span> <span class="na">material</span><span class="p">=</span><span class="s">"glass"</span> <span class="p">/&gt;;</span>
+</code></pre></div></div>
+
+<p>To be clear, the <code class="language-plaintext highlighter-rouge">Bottle</code> element would need to be defined and exported in a separate <code class="language-plaintext highlighter-rouge">Bottle.js</code> file, in which you can make use of the <code class="language-plaintext highlighter-rouge">material</code> prop you’ve passed in using the code above.</p>
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
@@ -70,8 +75,13 @@
       <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
       
         <div class="backlink-box">
-        <a class="internal-link" href="/responsive-design">responsive design</a><br>
-        <div style="font-size: 0.9em">To make a site responsive, the layout will be based on a grid. Using methods such as [[relative units]] and...</div>
+        <a class="internal-link" href="/making-a-react-project">making a react project</a><br>
+        <div style="font-size: 0.9em">Think about your components Your React app will be broken into components, each of which can be [[stateful]] or [[stateless]]....</div>
+        </div>
+      
+        <div class="backlink-box">
+        <a class="internal-link" href="/stateless">stateless</a><br>
+        <div style="font-size: 0.9em">Stateless components are static components that either (1) don’t individually change in terms of their content, regardless of the user’s...</div>
         </div>
       
       </div>
