@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/expressive-code" />
+  <link rel="canonical" href="http://localhost:4000/redux-middleware" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t...">
+  <meta name="description" content="Middleware is used in Redux to “extend the store’s abilities (for example, by allowing you to write asynchronous logic that interacts with the store).” (quot...">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t..."/>
+  <meta property="og:description" content="Middleware is used in Redux to “extend the store’s abilities (for example, by allowing you to write asynchronous logic that interacts with the store).” (quot..."/>
   
 
   
-  <meta property="og:title" content="expressive code">
+  <meta property="og:title" content="redux middleware">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/expressive-code" />
+  <meta property="og:url" content="http://localhost:4000/redux-middleware" />
 
   
 
   <title>
     
-      expressive code &mdash; E.J.'s Digital Garden
+      redux middleware &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>expressive code</h1>
-    <time datetime="2023-08-06T17:44:42-04:00">
-      Last updated on August 6, 2023
+    <h1>redux middleware</h1>
+    <time datetime="2023-08-24T15:38:19-04:00">
+      Last updated on August 24, 2023
       
     </time>
   </div>
@@ -58,18 +58,15 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>Best practices, loosely based on <a href="https://betterprogramming.pub/clean-code-give-meaning-to-your-code-to-exist-f966b3f00848" target="_blank">this Medium article</a>:</p>
-<ol>
-  <li>Follow the <a class="internal-link" href="/srp">SRP</a>
-</li>
-  <li>Use <a class="internal-link" href="/clean-variable-names">clean variable names</a>
-</li>
-  <li>Write <a class="internal-link" href="/clean-functions">clean functions</a>
-</li>
-  <li>Minimize arguments, try to limit functions to under 3 variables. Use <a class="internal-link" href="/argument-objects">argument objects</a> if needed.</li>
-  <li>Don’t use Booleans as arguments, as this violates <a class="internal-link" href="/srp">SRP</a>
-</li>
-</ol>
+<p><strong>Middleware</strong> is used in <strong>Redux</strong> to “extend the store’s abilities (for example, by allowing you to write asynchronous logic that interacts with the store).” (quoted from Codecademy)</p>
+
+<p>All Redux middleware have the same basic structure (also called a <a href="https://eloquentjavascript.net/05_higher_order.html" target="_blank">higher-order function</a>) exemplified below:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">logger</span> <span class="o">=</span><span class="err"> </span><span class="nx">storeAPI</span> <span class="o">=&gt;</span> <span class="nx">next</span> <span class="o">=&gt;</span> <span class="nx">action</span> <span class="o">=&gt;</span> <span class="p">{</span>  
+<span class="err">  </span><span class="c1">// do stuff here  </span>
+  
+<span class="err">  </span><span class="k">return</span> <span class="nf">next</span><span class="p">(</span><span class="nx">action</span><span class="p">);</span>  
+<span class="p">};</span>
+</code></pre></div></div>
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>

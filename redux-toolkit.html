@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/expressive-code" />
+  <link rel="canonical" href="http://localhost:4000/redux-toolkit" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t...">
+  <meta name="description" content="Redux Toolkit is “the official, opinionated, batteries-included toolset for efficient Redux development” and it helps by reducing the complexity of setting u...">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t..."/>
+  <meta property="og:description" content="Redux Toolkit is “the official, opinionated, batteries-included toolset for efficient Redux development” and it helps by reducing the complexity of setting u..."/>
   
 
   
-  <meta property="og:title" content="expressive code">
+  <meta property="og:title" content="Redux toolkit">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/expressive-code" />
+  <meta property="og:url" content="http://localhost:4000/redux-toolkit" />
 
   
 
   <title>
     
-      expressive code &mdash; E.J.'s Digital Garden
+      Redux toolkit &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>expressive code</h1>
-    <time datetime="2023-08-06T17:44:42-04:00">
-      Last updated on August 6, 2023
+    <h1>Redux toolkit</h1>
+    <time datetime="2023-08-28T09:08:04-04:00">
+      Last updated on August 28, 2023
       
     </time>
   </div>
@@ -58,18 +58,124 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>Best practices, loosely based on <a href="https://betterprogramming.pub/clean-code-give-meaning-to-your-code-to-exist-f966b3f00848" target="_blank">this Medium article</a>:</p>
+<p><strong>Redux Toolkit</strong> is “the official, opinionated, batteries-included toolset for efficient Redux development” and it helps by reducing the complexity of setting up slices and stores. Check out <a href="https://redux-toolkit.js.org/" target="_blank">the docs</a>.</p>
+
+<h2 id="installing-dependencies">Installing dependencies</h2>
+
+<p>Run the following command to install dependencies using npm:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install @reduxjs/toolkit
+</code></pre></div></div>
+
+<p>Alternatively, you could use yarn.</p>
+
+<h2 id="useful-methods">Useful methods</h2>
+
+<h3 id="createsliceoptions"><code class="language-plaintext highlighter-rouge">createSlice(options)</code></h3>
+<p>This is a useful function provided by the toolkit for creating slices while writing less boilerplate code. The <code class="language-plaintext highlighter-rouge">options</code> argument is an object with properties such as <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">initialState</code>, and <code class="language-plaintext highlighter-rouge">reducers</code>.</p>
+
+<p>Here is a simple example from codecademy.com where the code has been refactored using the Redux toolkit:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Switch reducer</span>
+<span class="kd">const</span> <span class="nx">counterReducer</span> <span class="o">=</span><span class="err"> </span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span><span class="err"> </span><span class="mi">0</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>  
+<span class="err">  </span><span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>  
+<span class="err">    </span><span class="k">case</span> <span class="dl">'</span><span class="s1">increment</span><span class="dl">'</span><span class="p">:</span>  
+<span class="err">      </span><span class="k">return</span> <span class="nx">state</span> <span class="o">+</span><span class="err"> </span><span class="mi">1</span><span class="p">;</span>  
+<span class="err">    </span><span class="k">case</span> <span class="dl">'</span><span class="s1">decrement</span><span class="dl">'</span><span class="p">:</span>  
+<span class="err">      </span><span class="k">return</span> <span class="nx">state</span> <span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">;</span>  
+<span class="err">    </span><span class="na">default</span><span class="p">:</span>  
+<span class="err">      </span><span class="k">return</span> <span class="nx">state</span><span class="p">;</span>  
+<span class="err">  </span><span class="p">}</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Rewritten with case reducers</span>
+<span class="kd">const</span> <span class="nx">options</span> <span class="o">=</span><span class="err"> </span><span class="p">{</span>  
+<span class="err">  </span><span class="nx">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">counter</span><span class="dl">'</span><span class="p">,</span>  
+<span class="err">  </span><span class="nx">initialState</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>  
+<span class="err">  </span><span class="nx">reducers</span><span class="p">:</span> <span class="p">{</span>  
+<span class="err">    </span><span class="nx">increment</span><span class="p">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>  
+<span class="err">      </span><span class="k">return</span> <span class="nx">state</span> <span class="o">+</span><span class="err"> </span><span class="mi">1</span><span class="p">;</span>  
+<span class="err">    </span><span class="p">},</span>  
+<span class="err">    </span><span class="nx">decrement</span><span class="p">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>  
+<span class="err">      </span><span class="k">return</span> <span class="nx">state</span> <span class="o">-</span><span class="err"> </span><span class="mi">1</span><span class="p">;</span>  
+<span class="err">    </span><span class="p">}</span><span class="err">  </span>  
+<span class="err">  </span><span class="p">}</span>  
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Something to note, <code class="language-plaintext highlighter-rouge">createSlice()</code> takes advantage of the Immer library, meaning that we can safely mutate the state in the reducers. For example, use <code class="language-plaintext highlighter-rouge">push()</code> instead of the spread operator when adding to an array, etc.</p>
+
+<p>See also: <a href="https://immerjs.github.io/immer/update-patterns/" target="_blank">Update patterns with Immer</a></p>
+
+<h3 id="configurestore"><code class="language-plaintext highlighter-rouge">configureStore()</code></h3>
+<p>This method also allows developers to bypass a large amount of boilerplate code by automating the process of Redux store configuration.</p>
+
+<p>By using the <code class="language-plaintext highlighter-rouge">configureStore()</code> method, the following benefits are achieved:</p>
+<ul>
+  <li>Remove the need to call <code class="language-plaintext highlighter-rouge">combineReducers()</code> and <code class="language-plaintext highlighter-rouge">createStore()</code>
+</li>
+  <li>Adds the thunk middleware + additional middleware to check for common mistakes</li>
+  <li>Automatically sets up Redux DevTools Extension connection</li>
+</ul>
+
+<h3 id="createasyncthunk"><code class="language-plaintext highlighter-rouge">createAsyncThunk()</code></h3>
+<p>This method “abstracts the process of handling promise lifecycle states according to best practices/common design paradigms” (quote from codecademy). The function requires two arguments:</p>
 <ol>
-  <li>Follow the <a class="internal-link" href="/srp">SRP</a>
-</li>
-  <li>Use <a class="internal-link" href="/clean-variable-names">clean variable names</a>
-</li>
-  <li>Write <a class="internal-link" href="/clean-functions">clean functions</a>
-</li>
-  <li>Minimize arguments, try to limit functions to under 3 variables. Use <a class="internal-link" href="/argument-objects">argument objects</a> if needed.</li>
-  <li>Don’t use Booleans as arguments, as this violates <a class="internal-link" href="/srp">SRP</a>
-</li>
+  <li>a string describing an action type</li>
+  <li>an asynchronous thunk function.</li>
 </ol>
+
+<p>Here is the way of dispatching pending/fulfilled/rejected actions ourselves, WITHOUT using <code class="language-plaintext highlighter-rouge">createAsyncThunk()</code>:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">loadRecipes</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="err"> </span> <span class="k">return</span> <span class="k">async </span><span class="p">(</span><span class="nx">dispatch</span><span class="p">,</span> <span class="nx">getState</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="nf">dispatch</span><span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">allRecipes/getAllRecipes/pending</span><span class="dl">"</span> <span class="p">});</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">try</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">api/recipes?limit=10</span><span class="dl">"</span><span class="p">);</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="kd">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">data</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nf">dispatch</span><span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">allRecipes/getAllRecipes/fulfilled</span><span class="dl">"</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nx">json</span> <span class="p">});</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nf">dispatch</span><span class="p">({</span> <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">allRecipes/getAllRecipes/rejected</span><span class="dl">"</span><span class="p">,</span> <span class="na">payload</span><span class="p">:</span> <span class="nx">err</span> <span class="p">});</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+<span class="err"> </span> <span class="p">};</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>And here is the same WITH using <code class="language-plaintext highlighter-rouge">createAsyncThunk()</code>:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">loadRecipes</span> <span class="o">=</span> <span class="nf">createAsyncThunk</span><span class="p">(</span>
+<span class="err"> </span> <span class="dl">"</span><span class="s2">allRecipes/getAllRecipes</span><span class="dl">"</span><span class="p">,</span>
+<span class="err"> </span> <span class="k">async </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="dl">"</span><span class="s2">api/recipes?limit=10</span><span class="dl">"</span><span class="p">);</span>
+<span class="err"> </span> <span class="err"> </span> <span class="kd">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">data</span><span class="p">.</span><span class="nf">json</span><span class="p">();</span>
+<span class="err"> </span> <span class="err"> </span> <span class="k">return</span> <span class="nx">json</span><span class="p">;</span>
+<span class="err"> </span> <span class="p">}</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>Note that in this latter case, in order to make the slice respond to actions generated elsewhere, we would need to add the <code class="language-plaintext highlighter-rouge">extraReducers</code> property to our slice as such:</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">sliceOptions</span> <span class="o">=</span> <span class="p">{</span>
+<span class="err"> </span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">allRecipes</span><span class="dl">"</span><span class="p">,</span>
+<span class="err"> </span> <span class="na">initialState</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span> <span class="p">,</span>
+<span class="err"> </span> <span class="na">reducers</span><span class="p">:</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">},</span>
+<span class="err"> </span> <span class="na">extraReducers</span><span class="p">:</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">[</span><span class="nx">loadRecipes</span><span class="p">.</span><span class="nx">pending</span><span class="p">]:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nx">state</span><span class="p">.</span><span class="nx">isLoading</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nx">state</span><span class="p">.</span><span class="nx">hasError</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">},</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">[</span><span class="nx">loadRecipes</span><span class="p">.</span><span class="nx">fulfilled</span><span class="p">]:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span><span class="p">;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nx">state</span><span class="p">.</span><span class="nx">isLoading</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nx">state</span><span class="p">.</span><span class="nx">hasError</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">},</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">[</span><span class="nx">loadRecipes</span><span class="p">.</span><span class="nx">rejected</span><span class="p">]:</span> <span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nx">state</span><span class="p">.</span><span class="nx">isLoading</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="nx">state</span><span class="p">.</span><span class="nx">hasError</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+<span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://www.codecademy.com/learn/paths/fscj-22-front-end-development/tracks/fscj-22-redux/modules/wdcp-22-async-actions-with-middleware-and-thunks-ae945346-91ed-45c4-a7a0-7c98bff0ab99/cheatsheet" target="_blank">See Codecademy’s cheatsheet</a> for more info about usage.</p>
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
@@ -77,11 +183,13 @@
     <side style="font-size: 0.9em">
       <h3 style="margin-bottom: 1em">Notes mentioning this note</h3>
       
-
-      <div style="font-size: 0.9em">
-        <p>
-          There are no notes linking to this note.
-        </p>
+      <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
+      
+        <div class="backlink-box">
+        <a class="internal-link" href="/redux-toolkit">Redux toolkit</a><br>
+        <div style="font-size: 0.9em">Redux Toolkit is “the official, opinionated, batteries-included toolset for efficient Redux development” and it helps by reducing the complexity of...</div>
+        </div>
+      
       </div>
       
     </side>

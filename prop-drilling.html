@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/expressive-code" />
+  <link rel="canonical" href="http://localhost:4000/prop-drilling" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t...">
+  <meta name="description" content="Prop drilling is when you pass [[props]] down to multiple children. This is something to be avoided in [[React]] programming.">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t..."/>
+  <meta property="og:description" content="Prop drilling is when you pass [[props]] down to multiple children. This is something to be avoided in [[React]] programming."/>
   
 
   
-  <meta property="og:title" content="expressive code">
+  <meta property="og:title" content="prop drilling">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/expressive-code" />
+  <meta property="og:url" content="http://localhost:4000/prop-drilling" />
 
   
 
   <title>
     
-      expressive code &mdash; E.J.'s Digital Garden
+      prop drilling &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>expressive code</h1>
-    <time datetime="2023-08-06T17:44:42-04:00">
-      Last updated on August 6, 2023
+    <h1>prop drilling</h1>
+    <time datetime="2023-08-28T09:04:40-04:00">
+      Last updated on August 28, 2023
       
     </time>
   </div>
@@ -58,18 +58,9 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>Best practices, loosely based on <a href="https://betterprogramming.pub/clean-code-give-meaning-to-your-code-to-exist-f966b3f00848" target="_blank">this Medium article</a>:</p>
-<ol>
-  <li>Follow the <a class="internal-link" href="/srp">SRP</a>
-</li>
-  <li>Use <a class="internal-link" href="/clean-variable-names">clean variable names</a>
-</li>
-  <li>Write <a class="internal-link" href="/clean-functions">clean functions</a>
-</li>
-  <li>Minimize arguments, try to limit functions to under 3 variables. Use <a class="internal-link" href="/argument-objects">argument objects</a> if needed.</li>
-  <li>Don’t use Booleans as arguments, as this violates <a class="internal-link" href="/srp">SRP</a>
-</li>
-</ol>
+<p>Prop drilling is when you pass <a class="internal-link" href="/props">props</a> down to multiple children. This is something <strong>to be avoided</strong> in <a class="internal-link" href="/react">React</a> programming.</p>
+
+<p>There are multiple ways to avoid prop drilling. For example, you can use <a href="https://www.geeksforgeeks.org/what-is-prop-drilling-and-how-to-avoid-it/" target="_blank">the useContext hook</a> or the <a class="internal-link" href="/react-redux-library">React-Redux library</a>.</p>
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
@@ -77,11 +68,16 @@
     <side style="font-size: 0.9em">
       <h3 style="margin-bottom: 1em">Notes mentioning this note</h3>
       
+      <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
+      
+        <div class="backlink-box">
+        <a class="internal-link" href="/react-redux-library">react-redux library</a><br>
+        <div style="font-size: 0.9em">
+  ”[React-Redux] was created to bind the UI rendering of React to the state management of Redux.” — from codecademy.com
 
-      <div style="font-size: 0.9em">
-        <p>
-          There are no notes linking to this note.
-        </p>
+</div>
+        </div>
+      
       </div>
       
     </side>

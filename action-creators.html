@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/expressive-code" />
+  <link rel="canonical" href="http://localhost:4000/action-creators" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t...">
+  <meta name="description" content="Action creators are used to simplify the process of dispatching an action by assigning a callback function with the appropriate type.">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t..."/>
+  <meta property="og:description" content="Action creators are used to simplify the process of dispatching an action by assigning a callback function with the appropriate type."/>
   
 
   
-  <meta property="og:title" content="expressive code">
+  <meta property="og:title" content="action creators (Redux)">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/expressive-code" />
+  <meta property="og:url" content="http://localhost:4000/action-creators" />
 
   
 
   <title>
     
-      expressive code &mdash; E.J.'s Digital Garden
+      action creators (Redux) &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>expressive code</h1>
-    <time datetime="2023-08-06T17:44:42-04:00">
-      Last updated on August 6, 2023
+    <h1>action creators (Redux)</h1>
+    <time datetime="2023-08-17T10:09:30-04:00">
+      Last updated on August 17, 2023
       
     </time>
   </div>
@@ -58,18 +58,21 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>Best practices, loosely based on <a href="https://betterprogramming.pub/clean-code-give-meaning-to-your-code-to-exist-f966b3f00848" target="_blank">this Medium article</a>:</p>
-<ol>
-  <li>Follow the <a class="internal-link" href="/srp">SRP</a>
-</li>
-  <li>Use <a class="internal-link" href="/clean-variable-names">clean variable names</a>
-</li>
-  <li>Write <a class="internal-link" href="/clean-functions">clean functions</a>
-</li>
-  <li>Minimize arguments, try to limit functions to under 3 variables. Use <a class="internal-link" href="/argument-objects">argument objects</a> if needed.</li>
-  <li>Don’t use Booleans as arguments, as this violates <a class="internal-link" href="/srp">SRP</a>
-</li>
-</ol>
+<p><strong>Action creators</strong> are used to simplify the process of dispatching an action by assigning a callback function with the appropriate <code class="language-plaintext highlighter-rouge">type</code>.</p>
+
+<p>Here is an example snippet from codecademy.com:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">toggle</span> <span class="o">=</span><span class="err"> </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>  
+<span class="err">  </span><span class="k">return</span> <span class="p">{</span><span class="err"> </span><span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">toggle</span><span class="dl">"</span> <span class="p">};</span>  
+<span class="p">}</span>  
+<span class="nx">store</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">(</span><span class="nf">toggle</span><span class="p">());</span> <span class="c1">// Toggles the light to 'off'  </span>
+<span class="nx">store</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">(</span><span class="nf">toggle</span><span class="p">());</span> <span class="c1">// Toggles the light back to 'on'  </span>
+<span class="nx">store</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">(</span><span class="nf">toggle</span><span class="p">());</span> <span class="c1">// Toggles the light back to 'off'</span>
+</code></pre></div></div>
+<p>as opposed to:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">store</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">({</span><span class="err"> </span><span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">toggle</span><span class="dl">"</span> <span class="p">});</span> <span class="c1">// Toggles the light to 'off'  </span>
+<span class="nx">store</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">({</span><span class="err"> </span><span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">toggle</span><span class="dl">"</span> <span class="p">});</span> <span class="c1">// Toggles the light back to 'on'  </span>
+<span class="nx">store</span><span class="p">.</span><span class="nf">dispatch</span><span class="p">({</span><span class="err"> </span><span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">toggle</span><span class="dl">"</span> <span class="p">});</span> <span class="c1">// Toggles the light back to 'off'</span>
+</code></pre></div></div>
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
@@ -77,11 +80,13 @@
     <side style="font-size: 0.9em">
       <h3 style="margin-bottom: 1em">Notes mentioning this note</h3>
       
-
-      <div style="font-size: 0.9em">
-        <p>
-          There are no notes linking to this note.
-        </p>
+      <div style="display: grid; grid-gap: 1em; grid-template-columns: repeat(1fr);">
+      
+        <div class="backlink-box">
+        <a class="internal-link" href="/redux">Redux</a><br>
+        <div style="font-size: 0.9em">Redux is a library for React that helps with managing state in a container called a store. Especially if you...</div>
+        </div>
+      
       </div>
       
     </side>

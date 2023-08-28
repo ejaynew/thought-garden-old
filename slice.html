@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/expressive-code" />
+  <link rel="canonical" href="http://localhost:4000/slice" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t...">
+  <meta name="description" content="A slice is one key/value section of a state object in [[Redux]] applications. We typically define one [[reducer function]] for each slice, called a sliceRedu...">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="Best practices, loosely based on this Medium article:  Follow the [[SRP]]  Use [[clean variable names]]  Write [[clean functions]]  Minimize arguments, try t..."/>
+  <meta property="og:description" content="A slice is one key/value section of a state object in [[Redux]] applications. We typically define one [[reducer function]] for each slice, called a sliceRedu..."/>
   
 
   
-  <meta property="og:title" content="expressive code">
+  <meta property="og:title" content="slice">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/expressive-code" />
+  <meta property="og:url" content="http://localhost:4000/slice" />
 
   
 
   <title>
     
-      expressive code &mdash; E.J.'s Digital Garden
+      slice &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>expressive code</h1>
-    <time datetime="2023-08-06T17:44:42-04:00">
-      Last updated on August 6, 2023
+    <h1>slice</h1>
+    <time datetime="2023-08-22T10:58:40-04:00">
+      Last updated on August 22, 2023
       
     </time>
   </div>
@@ -58,18 +58,7 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>Best practices, loosely based on <a href="https://betterprogramming.pub/clean-code-give-meaning-to-your-code-to-exist-f966b3f00848" target="_blank">this Medium article</a>:</p>
-<ol>
-  <li>Follow the <a class="internal-link" href="/srp">SRP</a>
-</li>
-  <li>Use <a class="internal-link" href="/clean-variable-names">clean variable names</a>
-</li>
-  <li>Write <a class="internal-link" href="/clean-functions">clean functions</a>
-</li>
-  <li>Minimize arguments, try to limit functions to under 3 variables. Use <a class="internal-link" href="/argument-objects">argument objects</a> if needed.</li>
-  <li>Don’t use Booleans as arguments, as this violates <a class="internal-link" href="/srp">SRP</a>
-</li>
-</ol>
+<p>A <strong>slice</strong> is one key/value section of a state object in <a class="internal-link" href="/redux">Redux</a> applications. We typically define one <a class="internal-link" href="/reducer-function">reducer function</a> for each slice, called a sliceReducer.</p>
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
