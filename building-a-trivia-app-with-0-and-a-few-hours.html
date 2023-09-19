@@ -3,11 +3,11 @@
   <head>
   <meta charset="UTF-8">
 
-  <link rel="canonical" href="http://localhost:4000/view" />
+  <link rel="canonical" href="http://localhost:4000/building-a-trivia-app-with-0-and-a-few-hours" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="The view of an application describes the current appearance of the app from the user’s perspective.">
+  <meta name="description" content="Introduction">
 
   <meta property="og:site_name" content="E.J.'s Digital Garden">
 
@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="/styles.css">
 
   
-  <meta property="og:description" content="The view of an application describes the current appearance of the app from the user’s perspective."/>
+  <meta property="og:description" content="Introduction"/>
   
 
   
-  <meta property="og:title" content="view">
+  <meta property="og:title" content="Building a trivia app with React and OpenTriviaDB">
   <meta property="og:type" content="article">
   
 
@@ -29,13 +29,13 @@
   <meta property="article:author" content="http://localhost:4000/">
   
 
-  <meta property="og:url" content="http://localhost:4000/view" />
+  <meta property="og:url" content="http://localhost:4000/building-a-trivia-app-with-0-and-a-few-hours" />
 
   
 
   <title>
     
-      view &mdash; E.J.'s Digital Garden
+      Building a trivia app with React and OpenTriviaDB &mdash; E.J.'s Digital Garden
     
   </title>
 </head>
@@ -48,9 +48,9 @@
     <div class="wrapper">
       <main><article>
   <div>
-    <h1>view</h1>
-    <time datetime="2023-08-16T10:50:10-04:00">
-      Last updated on August 16, 2023
+    <h1>Building a trivia app with React and OpenTriviaDB</h1>
+    <time datetime="2023-09-14T13:18:36-04:00">
+      Last updated on September 14, 2023
       
     </time>
   </div>
@@ -58,7 +58,108 @@
   <div id="notes-entry-container">
     <content>
       <html><body>
-<p>The <strong>view</strong> of an application describes the current appearance of the app from the user’s perspective.</p>
+<h2 id="introduction">Introduction</h2>
+
+<p>Hello world! 👋
+Today I want to tell you about the React-Redux app I built recently using <code class="language-plaintext highlighter-rouge">create-react-app</code>. The app is called <strong>Quiz Me!</strong> and it cost me $0.00 and a few hours to develop.</p>
+
+<h2 id="1-defining-my-goals-for-the-project">1. Defining my goals for the project</h2>
+<p>I wanted to create an interactive app using React-Redux that I could add to my portfolio to demonstrate my understanding of the tech, which I have been learning for the past several months. The key technologies in play here are <a href="https://react.dev/" target="_blank">React</a> and <a href="https://redux.js.org/" target="_blank">Redux</a>. I also used <a href="https://opentdb.com/" target="_blank">Opentdb API</a> for the data, <a href="https://mui.com/material-ui/" target="_blank">MaterialUI</a> for some interface components and <a href="https://www.npmjs.com/package/he" target="_blank">he</a> for HTML encoding/decoding.</p>
+
+<h2 id="2-wireframe-the-project">2. Wireframe the project</h2>
+<p>After exploring the Opentdb API online to see what data would be available, I wireframed the project with a quick sketch, which was enough to have an idea of what components and slices I would need to set up.</p>
+<h2 id="3-set-up-the-development-environment">3. Set up the development environment</h2>
+<p>I used <a href="https://www.npmjs.com/" target="_blank"><code class="language-plaintext highlighter-rouge">npm</code></a> to create the React app (for more info about <code class="language-plaintext highlighter-rouge">create-react-app</code>, see <a href="https://create-react-app.dev/docs/getting-started" target="_blank">the docs</a>). With my project created, I installed my dependencies with <code class="language-plaintext highlighter-rouge">npm</code> (React, Redux, MaterialUI, and he, as explained in #1). After running <code class="language-plaintext highlighter-rouge">npm start</code>, I was able to see the changes I was making live, thanks to the webpack hot loader that comes pre-configured when you create an app this way.</p>
+
+<h2 id="4-setting-up-the-redux-store-and-slices">4. Setting up the Redux store and slices</h2>
+<p>Since I was using Redux for this project, a certain project structure is used which streamlines state management by avoiding prop threading, among other benefits. To start, I created a <code class="language-plaintext highlighter-rouge">redux</code> folder in my project directory. Inside the new folder, made a <code class="language-plaintext highlighter-rouge">store.js</code> file and a <code class="language-plaintext highlighter-rouge">slices</code> folder. I made a file for each of the two slices I used for this project — <code class="language-plaintext highlighter-rouge">categoriesSlice</code> and <code class="language-plaintext highlighter-rouge">quizSlice</code>. In each file, I imported and used <code class="language-plaintext highlighter-rouge">createSlice</code> from redux toolkit. Using the categories slice as an example, the basic structure of creating the slice looks like so:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">createSlice</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@reduxjs/toolkit</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">categoriesSlice</span> <span class="o">=</span> <span class="nf">createSlice</span><span class="p">({</span>
+<span class="err"> </span> <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">categories</span><span class="dl">"</span><span class="p">,</span>
+<span class="err"> </span> <span class="na">initialState</span><span class="p">:</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="na">categories</span><span class="p">:</span> <span class="p">[],</span>
+<span class="err"> </span> <span class="err"> </span> <span class="na">selectedCategory</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="err"> </span> <span class="err"> </span> <span class="na">loading</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+<span class="err"> </span> <span class="err"> </span> <span class="na">error</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+<span class="err"> </span> <span class="p">},</span>
+<span class="err"> </span> <span class="na">reducers</span><span class="p">:</span> <span class="p">{...},</span>
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="kd">const</span> <span class="p">{...}</span> <span class="o">=</span> <span class="nx">categoriesSlice</span><span class="p">.</span><span class="nx">actions</span><span class="p">;</span> <span class="c1">// export each of reducers created above</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">categoriesSlice</span><span class="p">.</span><span class="nx">reducer</span><span class="p">;</span>
+</code></pre></div></div>
+<p>The reducers I defined included <code class="language-plaintext highlighter-rouge">setCategories</code>, <code class="language-plaintext highlighter-rouge">selectCategory</code>, <code class="language-plaintext highlighter-rouge">fetchCategoriesPending</code>, <code class="language-plaintext highlighter-rouge">fetchCategoriesSuccess</code>, and <code class="language-plaintext highlighter-rouge">fetchCategoriesFailure</code>. Notice I defined three <code class="language-plaintext highlighter-rouge">fetchCategories</code> functions, one for each possible action state. This is because fetchCategories will be an asynchronous request to the Opentdb API, so I need an action for each state.
+Next it was time to pass the slice reducers to the store in <code class="language-plaintext highlighter-rouge">store.js</code> like so:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">configureStore</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">@reduxjs/toolkit</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">categoriesReducer</span> <span class="err"> </span><span class="k">from</span> <span class="dl">"</span><span class="s2">./slices/categoriesSlice</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">quizReducer</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./slices/quizSlice</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">store</span> <span class="o">=</span> <span class="nf">configureStore</span><span class="p">({</span>
+<span class="err"> </span> <span class="na">reducer</span><span class="p">:</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="na">categories</span><span class="p">:</span> <span class="nx">categoriesReducer</span><span class="p">,</span>
+<span class="err"> </span> <span class="err"> </span> <span class="na">quiz</span><span class="p">:</span> <span class="nx">quizReducer</span><span class="p">,</span>
+<span class="err"> </span> <span class="p">},</span>
+<span class="p">});</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">store</span><span class="p">;</span>
+</code></pre></div></div>
+<p>Then finally, I wrapped the <code class="language-plaintext highlighter-rouge">&lt;App /&gt;</code> with a <code class="language-plaintext highlighter-rouge">&lt;Provider /&gt;</code>, passing the newly-created store as an argument:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">React</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">ReactDOM</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-dom/client</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="nx">App</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./App</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Provider</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react-redux</span><span class="dl">"</span><span class="p">;</span>
+<span class="k">import</span> <span class="err"> </span><span class="nx">store</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./redux/store</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">ReactDOM</span><span class="p">.</span><span class="nf">createRoot</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nf">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">root</span><span class="dl">"</span><span class="p">));</span>
+<span class="nx">root</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span>
+<span class="err"> </span> <span class="o">&lt;</span><span class="nx">React</span><span class="p">.</span><span class="nx">StrictMode</span><span class="o">&gt;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="o">&lt;</span><span class="nx">Provider</span> <span class="nx">store</span><span class="o">=</span><span class="p">{</span><span class="nx">store</span><span class="p">}</span><span class="o">&gt;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="o">&lt;</span><span class="nx">App</span> <span class="o">/&gt;</span>
+<span class="err"> </span> <span class="err"> </span> <span class="o">&lt;</span><span class="sr">/Provider</span><span class="err">&gt;
+ </span> <span class="o">&lt;</span><span class="sr">/React.StrictMode</span><span class="err">&gt;
+</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="5-developing-the-basic-interface">5. Developing the basic interface</h2>
+<p>Using the wireframe as a guide, I decided to break the interface into 5 components:</p>
+<ul>
+  <li>Header</li>
+  <li>Categories Navbar (left-aligned)</li>
+  <li>Quiz (right-aligned)
+    <ul>
+      <li>ActiveQuestion (child component of Quiz)</li>
+    </ul>
+  </li>
+  <li>Footer
+I put these components in their own <code class="language-plaintext highlighter-rouge">components</code> folder and created a file for each one. Each file defines and exports a <code class="language-plaintext highlighter-rouge">const</code> callback which returns a <code class="language-plaintext highlighter-rouge">&lt;div /&gt;</code> containing the relevant information. A main benefit of using Redux is that state variables can easily be accessed with the <code class="language-plaintext highlighter-rouge">useSelector</code> hook, which takes a callback and extracts the relevant data from <code class="language-plaintext highlighter-rouge">state</code>. Using this feature of React-Redux, I was able to add variables and data to my component, such as <code class="language-plaintext highlighter-rouge">selectedAnswer</code>, <code class="language-plaintext highlighter-rouge">isAnswerCorrect</code>, <code class="language-plaintext highlighter-rouge">questions</code>, and <code class="language-plaintext highlighter-rouge">activeQuestion</code>. Once I integrate the Opentdb API, these variables will be crucial to controlling the user experience. After some CSS manipulation, I was able to get an interface that resembled the wireframe sketch I started with and it was time for the next step.</li>
+</ul>
+
+<h2 id="6-api-integration">6. API Integration</h2>
+<p>The Opentdb API is easy to use and doesn’t require an API key. Thus, I was able to quickly spin up an <code class="language-plaintext highlighter-rouge">opentdb.js</code> file with two functions, <code class="language-plaintext highlighter-rouge">fetchCategories</code> (to get the data that should go in the navbar on the left) and <code class="language-plaintext highlighter-rouge">fetchQuestions</code> (to get new quiz data) which each used <code class="language-plaintext highlighter-rouge">fetch</code> to send a GET request to the proper URL.
+I then imported these questions into the <code class="language-plaintext highlighter-rouge">categoriesSlice</code> and <code class="language-plaintext highlighter-rouge">quizSlice</code>, respectively, and created and exported a <a class="internal-link" href="/thunk">thunk</a> in each of the files. Here is the <code class="language-plaintext highlighter-rouge">fetchAvailableCategories</code> thunk, for example:</p>
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kd">const</span> <span class="nx">fetchAvailableCategories</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">async </span><span class="p">(</span><span class="nx">dispatch</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="err"> </span> <span class="nf">dispatch</span><span class="p">(</span><span class="nf">fetchCategoriesPending</span><span class="p">());</span>
+<span class="err"> </span> <span class="k">try</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="kd">const</span> <span class="nx">categories</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">fetchCategories</span><span class="p">();</span>
+<span class="err"> </span> <span class="err"> </span> <span class="nf">dispatch</span><span class="p">(</span><span class="nf">fetchCategoriesSuccess</span><span class="p">(</span><span class="nx">categories</span><span class="p">));</span>
+<span class="err"> </span> <span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="nf">dispatch</span><span class="p">(</span><span class="nf">fetchCategoriesFailure</span><span class="p">(</span><span class="nx">error</span><span class="p">));</span>
+<span class="err"> </span> <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="7-tying-things-together-and-styling-the-app">7. Tying things together and styling the app</h2>
+<p>With all the basic functionalities defined, it was now time to tie everything together. After changing a few things in my <code class="language-plaintext highlighter-rouge">Navbar</code> and <code class="language-plaintext highlighter-rouge">Quiz</code> components, my previously-created interface actually worked to change the underlying state. The next step was improving the styling of the app.
+At this point, I changed my buttons to MUI <code class="language-plaintext highlighter-rouge">&lt;Button /&gt;</code>s for a nicer look. I also added a dark-mode toggle to improve the app just a little bit. Finally, I added correct and incorrect response messages using conditional rendering.</p>
+
+<h2 id="8-deploying-the-app-with-github-pages">8. Deploying the app with Github pages</h2>
+<p>I followed the instructions on <a href="https://github.com/gitname/react-gh-pages" target="_blank">this repo</a> to deploy my app with Github pages.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Thank you for reading and I hope that you learned something or at least found it interesting! If you’re interested in checking out my project, you can find a live demo hosted by Github pages <a href="https://ejaynew.github.io/quiz-me/" target="_blank">here</a>.</p>
+
 </body></html>
       <em><p>Thanks for reading and I hope you have a great day!</p></em>
     </content>
